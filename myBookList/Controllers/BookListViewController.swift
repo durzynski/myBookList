@@ -61,13 +61,27 @@ extension BookListViewController {
         
         title = "My Book List"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddBookVC))
         
     }
     
     private func setupTableView() {
         bookListTableView.delegate = self
         bookListTableView.dataSource = self
+    }
+    
+}
+
+//MARK: - Actions
+
+extension BookListViewController {
+    
+    @objc func presentAddBookVC() {
+        
+        let vc = AddBookViewController()
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
 }

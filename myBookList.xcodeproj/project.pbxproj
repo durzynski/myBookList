@@ -11,6 +11,9 @@
 		2D29E9EC27EA0CB100EE4A1B /* BookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9EA27EA0CB100EE4A1B /* BookModel.xcdatamodeld */; };
 		2D29E9EE27EA1CC600EE4A1B /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9ED27EA1CC600EE4A1B /* BookViewModel.swift */; };
 		2D29E9F027EA698A00EE4A1B /* AddBookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9EF27EA698A00EE4A1B /* AddBookViewModel.swift */; };
+		2D29E9F227EA6FE800EE4A1B /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9F127EA6FE800EE4A1B /* AddBookViewController.swift */; };
+		2D29E9F427EB49AE00EE4A1B /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9F327EB49AE00EE4A1B /* AddBookView.swift */; };
+		2D29E9F627EB49E000EE4A1B /* LabelWithTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9F527EB49E000EE4A1B /* LabelWithTextFieldView.swift */; };
 		2D4898AC27E9E2B200F08E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4898AB27E9E2B200F08E86 /* AppDelegate.swift */; };
 		2D4898AE27E9E2B200F08E86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4898AD27E9E2B200F08E86 /* SceneDelegate.swift */; };
 		2D4898B027E9E2B200F08E86 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4898AF27E9E2B200F08E86 /* BookListViewController.swift */; };
@@ -26,6 +29,9 @@
 		2D29E9EB27EA0CB100EE4A1B /* BookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookModel.xcdatamodel; sourceTree = "<group>"; };
 		2D29E9ED27EA1CC600EE4A1B /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		2D29E9EF27EA698A00EE4A1B /* AddBookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewModel.swift; sourceTree = "<group>"; };
+		2D29E9F127EA6FE800EE4A1B /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
+		2D29E9F327EB49AE00EE4A1B /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		2D29E9F527EB49E000EE4A1B /* LabelWithTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithTextFieldView.swift; sourceTree = "<group>"; };
 		2D4898A827E9E2B200F08E86 /* myBookList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myBookList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4898AB27E9E2B200F08E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D4898AD27E9E2B200F08E86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				2D4898AF27E9E2B200F08E86 /* BookListViewController.swift */,
+				2D29E9F127EA6FE800EE4A1B /* AddBookViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,6 +114,8 @@
 			children = (
 				2D4898C427E9E83A00F08E86 /* BookListEmptyCell.swift */,
 				2D4898C627E9E8DD00F08E86 /* EmptyCellView.swift */,
+				2D29E9F327EB49AE00EE4A1B /* AddBookView.swift */,
+				2D29E9F527EB49E000EE4A1B /* LabelWithTextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,9 +215,12 @@
 				2D4898C527E9E83A00F08E86 /* BookListEmptyCell.swift in Sources */,
 				2D4898B027E9E2B200F08E86 /* BookListViewController.swift in Sources */,
 				2D29E9EC27EA0CB100EE4A1B /* BookModel.xcdatamodeld in Sources */,
+				2D29E9F227EA6FE800EE4A1B /* AddBookViewController.swift in Sources */,
 				2D4898AC27E9E2B200F08E86 /* AppDelegate.swift in Sources */,
+				2D29E9F627EB49E000EE4A1B /* LabelWithTextFieldView.swift in Sources */,
 				2D4898C727E9E8DD00F08E86 /* EmptyCellView.swift in Sources */,
 				2D29E9F027EA698A00EE4A1B /* AddBookViewModel.swift in Sources */,
+				2D29E9F427EB49AE00EE4A1B /* AddBookView.swift in Sources */,
 				2D29E9EE27EA1CC600EE4A1B /* BookViewModel.swift in Sources */,
 				2D4898AE27E9E2B200F08E86 /* SceneDelegate.swift in Sources */,
 				2D29E9E927EA0BFB00EE4A1B /* CoreDataManager.swift in Sources */,
