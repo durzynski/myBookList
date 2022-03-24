@@ -9,16 +9,20 @@ import Foundation
 
 struct BookListViewModel {
     
-    let books = [Book]()
+    var books = [BookViewModel]()
     
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        return books.count
+    mutating func getBooks() {
+        let books = CoreDataManager.shared.fetchData()
+        
+        self.books = books.map({ book in
+            BookViewModel(book: book)
+        })
     }
     
-    func bookAtIndex(_ index: Int) -> BookViewModel {
-        let book = books[index]
+    func deleteBook(viewModel: BookViewModel) {
+
+        CoreDataManager.shared.delete(book: viewModel.book)
         
-        return BookViewModel(book: book)
     }
     
 }
@@ -51,7 +55,27 @@ struct BookViewModel {
         return book.readPages
     }
     
-    var readingProgress: Double {
-        return Double(numberOfPagesRead / numberOfPages)
+    var readingProgress: Float {
+        
+        let result = Float(numberOfPagesRead) / Float(numberOfPages)
+
+        if result > 1 {
+            return 1
+        }
+        
+        return Float(numberOfPagesRead) / Float(numberOfPages)
+    }
+    
+    var readingPercentString: String {
+        
+        if readingProgress == 1 {
+            return "100%"
+        } else {
+            
+            let value = readingProgress * 100
+            
+            return String(format: "%.2f", value) + "%"
+        }
+        
     }
 }

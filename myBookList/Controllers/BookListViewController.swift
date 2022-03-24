@@ -9,6 +9,8 @@ import UIKit
 
 class BookListViewController: UIViewController {
     
+    private var bookListViewModel = BookListViewModel()
+    
     //MARK: - UI Elements
     
     private let bookListTableView: UITableView = {
@@ -16,6 +18,7 @@ class BookListViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .systemGray5
         tableView.register(BookListEmptyCell.self, forCellReuseIdentifier: BookListEmptyCell.identifier)
+        tableView.register(BookListCell.self, forCellReuseIdentifier: BookListCell.identifier)
         tableView.separatorStyle = .none
         
         return tableView
@@ -28,6 +31,8 @@ class BookListViewController: UIViewController {
         
         configureUI()
         
+        bookListViewModel.getBooks()
+        
     }
 }
 
@@ -36,7 +41,7 @@ class BookListViewController: UIViewController {
 extension BookListViewController {
     
     private func configureUI() {
-
+        
         view.backgroundColor = .systemGray5
         view.addSubview(bookListTableView)
         
@@ -56,7 +61,7 @@ extension BookListViewController {
             
         ])
     }
-
+    
     private func setupNavigation() {
         
         title = "My Book List"
@@ -90,24 +95,72 @@ extension BookListViewController {
 
 extension BookListViewController: UITableViewDataSource, UITableViewDelegate {
     
-
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        if bookListViewModel.books.count < 1 {
+            return 1
+        }
+        
+        return bookListViewModel.books.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: BookListEmptyCell.identifier) as? BookListEmptyCell else {
+        if bookListViewModel.books.count < 1 {
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BookListEmptyCell.identifier) as? BookListEmptyCell else {
+                fatalError()
+            }
+            
+            return cell
+        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BookListCell.identifier, for: indexPath) as? BookListCell else {
             fatalError()
         }
+        
+        let viewModel = bookListViewModel.books[indexPath.row]
+        cell.configure(with: viewModel)
         
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return bookListTableView.bounds.size.height - 100
+        
+        if bookListViewModel.books.count < 1 {
+            return bookListTableView.bounds.size.height - 100
+            
+        }
+        
+        return BookListCell.preferredHeight
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let viewModel = bookListViewModel.books[indexPath.row]
+        
+        let vc = BookDetailViewController(viewModel: viewModel)
+        
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let viewModel = bookListViewModel.books[indexPath.row]
+            bookListViewModel.deleteBook(viewModel: viewModel)
+            
+            DispatchQueue.main.async {
+                self.bookListViewModel.getBooks()
+                self.bookListTableView.reloadData()
+            }
+        }
     }
 }
 

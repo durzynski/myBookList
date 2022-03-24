@@ -15,6 +15,10 @@
 		2D29E9F427EB49AE00EE4A1B /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9F327EB49AE00EE4A1B /* AddBookView.swift */; };
 		2D29E9F627EB49E000EE4A1B /* AddBookTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9F527EB49E000EE4A1B /* AddBookTextField.swift */; };
 		2D29E9F827EC6CDB00EE4A1B /* AddBookTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9F727EC6CDB00EE4A1B /* AddBookTextView.swift */; };
+		2D29E9FD27ECA88100EE4A1B /* BookListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29E9FC27ECA88100EE4A1B /* BookListCell.swift */; };
+		2D29EA0127ECAEF300EE4A1B /* ChevronImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29EA0027ECAEF300EE4A1B /* ChevronImageView.swift */; };
+		2D29EA0327ED1AB000EE4A1B /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29EA0227ED1AB000EE4A1B /* CustomStackView.swift */; };
+		2D29EA0527ED251800EE4A1B /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D29EA0427ED251700EE4A1B /* BookDetailViewController.swift */; };
 		2D4898AC27E9E2B200F08E86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4898AB27E9E2B200F08E86 /* AppDelegate.swift */; };
 		2D4898AE27E9E2B200F08E86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4898AD27E9E2B200F08E86 /* SceneDelegate.swift */; };
 		2D4898B027E9E2B200F08E86 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4898AF27E9E2B200F08E86 /* BookListViewController.swift */; };
@@ -34,6 +38,10 @@
 		2D29E9F327EB49AE00EE4A1B /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		2D29E9F527EB49E000EE4A1B /* AddBookTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookTextField.swift; sourceTree = "<group>"; };
 		2D29E9F727EC6CDB00EE4A1B /* AddBookTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookTextView.swift; sourceTree = "<group>"; };
+		2D29E9FC27ECA88100EE4A1B /* BookListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListCell.swift; sourceTree = "<group>"; };
+		2D29EA0027ECAEF300EE4A1B /* ChevronImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronImageView.swift; sourceTree = "<group>"; };
+		2D29EA0227ED1AB000EE4A1B /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		2D29EA0427ED251700EE4A1B /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		2D4898A827E9E2B200F08E86 /* myBookList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myBookList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4898AB27E9E2B200F08E86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D4898AD27E9E2B200F08E86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +71,16 @@
 				2D29E9E827EA0BFB00EE4A1B /* CoreDataManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		2D29E9FB27ECA86000EE4A1B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2D4898C427E9E83A00F08E86 /* BookListEmptyCell.swift */,
+				2D4898C627E9E8DD00F08E86 /* EmptyCellView.swift */,
+				2D29E9FC27ECA88100EE4A1B /* BookListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		2D48989F27E9E2B200F08E86 = {
@@ -107,6 +125,7 @@
 			children = (
 				2D4898AF27E9E2B200F08E86 /* BookListViewController.swift */,
 				2D29E9F127EA6FE800EE4A1B /* AddBookViewController.swift */,
+				2D29EA0427ED251700EE4A1B /* BookDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -114,11 +133,12 @@
 		2D4898C127E9E53C00F08E86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2D4898C427E9E83A00F08E86 /* BookListEmptyCell.swift */,
-				2D4898C627E9E8DD00F08E86 /* EmptyCellView.swift */,
+				2D29E9FB27ECA86000EE4A1B /* Cells */,
 				2D29E9F327EB49AE00EE4A1B /* AddBookView.swift */,
 				2D29E9F527EB49E000EE4A1B /* AddBookTextField.swift */,
 				2D29E9F727EC6CDB00EE4A1B /* AddBookTextView.swift */,
+				2D29EA0027ECAEF300EE4A1B /* ChevronImageView.swift */,
+				2D29EA0227ED1AB000EE4A1B /* CustomStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,13 +239,17 @@
 				2D4898B027E9E2B200F08E86 /* BookListViewController.swift in Sources */,
 				2D29E9EC27EA0CB100EE4A1B /* BookModel.xcdatamodeld in Sources */,
 				2D29E9F227EA6FE800EE4A1B /* AddBookViewController.swift in Sources */,
+				2D29EA0127ECAEF300EE4A1B /* ChevronImageView.swift in Sources */,
 				2D4898AC27E9E2B200F08E86 /* AppDelegate.swift in Sources */,
 				2D29E9F627EB49E000EE4A1B /* AddBookTextField.swift in Sources */,
+				2D29EA0327ED1AB000EE4A1B /* CustomStackView.swift in Sources */,
+				2D29E9FD27ECA88100EE4A1B /* BookListCell.swift in Sources */,
 				2D4898C727E9E8DD00F08E86 /* EmptyCellView.swift in Sources */,
 				2D29E9F027EA698A00EE4A1B /* AddBookViewModel.swift in Sources */,
 				2D29E9F427EB49AE00EE4A1B /* AddBookView.swift in Sources */,
 				2D29E9EE27EA1CC600EE4A1B /* BookViewModel.swift in Sources */,
 				2D4898AE27E9E2B200F08E86 /* SceneDelegate.swift in Sources */,
+				2D29EA0527ED251800EE4A1B /* BookDetailViewController.swift in Sources */,
 				2D29E9E927EA0BFB00EE4A1B /* CoreDataManager.swift in Sources */,
 				2D29E9F827EC6CDB00EE4A1B /* AddBookTextView.swift in Sources */,
 				2D4898C927E9ED3D00F08E86 /* Constants.swift in Sources */,
