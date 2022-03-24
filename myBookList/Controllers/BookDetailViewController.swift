@@ -9,9 +9,15 @@
 import Foundation
 import UIKit
 
+protocol BookDetailViewControllerDelegate: AnyObject {
+    func didEditBook()
+}
+
 class BookDetailViewController: UIViewController {
     
     private var addBookViewModel = AddBookViewModel()
+    
+    weak var delegate: BookDetailViewControllerDelegate?
     
     private let viewModel: BookViewModel?
     
@@ -84,6 +90,8 @@ extension BookDetailViewController {
         addBookViewModel.notes = customView.notesView.textView.text
         
         addBookViewModel.save()
+        
+        delegate?.didEditBook()
         
         navigationController?.popViewController(animated: true)
         

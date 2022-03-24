@@ -84,7 +84,7 @@ extension BookListViewController {
     @objc func presentAddBookVC() {
         
         let vc = AddBookViewController()
-        
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -146,6 +146,7 @@ extension BookListViewController: UITableViewDataSource, UITableViewDelegate {
         let viewModel = bookListViewModel.books[indexPath.row]
         
         let vc = BookDetailViewController(viewModel: viewModel)
+        vc.delegate = self
         
         navigationController?.pushViewController(vc, animated: true)
         
@@ -164,4 +165,24 @@ extension BookListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+//MARK: - AddBookVC Delegate
 
+extension BookListViewController: AddBookViewControllerDelegate {
+    func didAddBook() {
+        DispatchQueue.main.async {
+            self.bookListViewModel.getBooks()
+            self.bookListTableView.reloadData()
+        }
+    }
+}
+
+//MARK: - DetailBookVC Delegate
+
+extension BookListViewController: BookDetailViewControllerDelegate {
+    func didEditBook() {
+        DispatchQueue.main.async {
+            self.bookListViewModel.getBooks()
+            self.bookListTableView.reloadData()
+        }
+    }
+}

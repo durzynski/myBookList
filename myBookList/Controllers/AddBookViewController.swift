@@ -8,11 +8,17 @@
 import Foundation
 import UIKit
 
+protocol AddBookViewControllerDelegate: AnyObject {
+    func didAddBook()
+}
+
 class AddBookViewController: UIViewController {
     
     private var addBookViewModel = AddBookViewModel()
     
     let customView = AddBookView()
+    
+    weak var delegate: AddBookViewControllerDelegate?
     
     //MARK: - Lifecycle
     
@@ -58,6 +64,8 @@ extension AddBookViewController {
         addBookViewModel.notes = customView.notesView.textView.text
         
         addBookViewModel.save()
+        
+        delegate?.didAddBook()
         
         navigationController?.popViewController(animated: true)
         
