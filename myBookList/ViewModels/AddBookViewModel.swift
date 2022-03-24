@@ -9,17 +9,23 @@ import Foundation
 
 struct AddBookViewModel {
     
-    func save(with viewModel: BookViewModel) {
+    var title: String = ""
+    var author: String = ""
+    var readPages: String = ""
+    var allPages: String = ""
+    var notes: String = ""
+    
+    func save() {
         
         let manager = CoreDataManager.shared
         
         let book = Book(context: manager.persistentContainer.viewContext)
         
-        book.title = viewModel.title
-        book.author = viewModel.author
-        book.readPages = viewModel.numberOfPagesRead
-        book.allPages = viewModel.numberOfPages
-        book.notes = viewModel.notes
+        book.title = title
+        book.author = author
+        book.readPages = Int16(readPages) ?? 0
+        book.allPages = Int16(allPages) ?? 0
+        book.notes = notes
         
         manager.save()
         

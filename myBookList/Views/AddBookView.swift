@@ -19,17 +19,30 @@ class AddBookView: UIView {
         return stackView
     }()
     
-    private let titleView = LabelWithTextFieldView(title: "Book Title")
+    let titleView = AddBookTextField(title: "Book Title")
    
-    private let authorView = LabelWithTextFieldView(title: "Author")
+    let authorView = AddBookTextField(title: "Author")
     
-    private let numberOfPagesView = LabelWithTextFieldView(title: "Number of pages", keyboardType: .numberPad)
+    private let pagesStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 16
+        stackView.distribution = .fillEqually
+        
+        return stackView
+    }()
+    
+    let numberOfPagesReadView = AddBookTextField(title: "Read Pages", keyboardType: .numberPad)
+    
+    let numberOfPagesView = AddBookTextField(title: "All Pages", keyboardType: .numberPad)
+    
+    let notesView = AddBookTextView(title: "Notes")
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
         setupUI()
-        
+        setupDelegates()
     }
     
     required init?(coder: NSCoder) {
@@ -49,7 +62,10 @@ extension AddBookView {
         
         stackView.addArrangedSubview(titleView)
         stackView.addArrangedSubview(authorView)
-        stackView.addArrangedSubview(numberOfPagesView)
+        stackView.addArrangedSubview(pagesStackView)
+        pagesStackView.addArrangedSubview(numberOfPagesReadView)
+        pagesStackView.addArrangedSubview(numberOfPagesView)
+        stackView.addArrangedSubview(notesView)
         
         layoutUI()
     }
@@ -60,9 +76,44 @@ extension AddBookView {
             
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 2),
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: safeAreaLayoutGuide.leadingAnchor, multiplier: 2),
-            safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
+            safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 2),
+            safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1),
             
         ])
         
     }
+    
+    private func setupDelegates() {
+        
+       titleView.textField.delegate = self
+       authorView.textField.delegate = self
+       numberOfPagesReadView.textField.delegate = self
+       numberOfPagesView.textField.delegate = self
+    }
+}
+
+//MARK: - TextField Delegate
+
+extension AddBookView: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        switch textField {
+
+        case titleView.textField:
+            authorView.textField.becomeFirstResponder()
+        case authorView.textField:
+            numberOfPagesReadView.textField.becomeFirstResponder()
+        case numberOfPagesReadView.textField:
+            numberOfPagesView.textField.becomeFirstResponder()
+        case numberOfPagesView.textField:
+            notesView.textView.becomeFirstResponder()
+        default:
+            print("Error with return button.")
+
+        }
+
+        return true
+    }
+    
 }

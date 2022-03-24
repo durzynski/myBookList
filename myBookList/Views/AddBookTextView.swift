@@ -1,14 +1,14 @@
 //
-//  LabelWithTextFieldView.swift
+//  AddBookTextView.swift
 //  myBookList
 //
-//  Created by Damian Durzyński on 23/03/2022.
+//  Created by Damian Durzyński on 24/03/2022.
 //
 
 import Foundation
 import UIKit
 
-class LabelWithTextFieldView: UIView {
+class AddBookTextView: UIView {
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -27,26 +27,24 @@ class LabelWithTextFieldView: UIView {
         return titleLabel
     }()
     
-    let textField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 1))
-        textField.leftViewMode = .always
-        textField.layer.cornerRadius = 8
-        textField.clipsToBounds = true
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.black.cgColor
+    let textView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.layer.cornerRadius = 8
+        textView.clipsToBounds = true
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.black.cgColor
+        textView.backgroundColor = .systemGray5
         
-        
-        return textField
+        return textView
     }()
     
     //MARK: - Init
     
-    init(title: String, keyboardType: UIKeyboardType? = .default) {
+    init(title: String) {
         super.init(frame: .zero)
     
-        setupUI(title: title, keyboardType: keyboardType ?? .default)
+        setupUI(title: title)
     }
     
     required init?(coder: NSCoder) {
@@ -56,17 +54,15 @@ class LabelWithTextFieldView: UIView {
 
 //MARK: - Configure UI
 
-extension LabelWithTextFieldView {
+extension AddBookTextView {
     
-    private func setupUI(title: String, keyboardType: UIKeyboardType) {
+    private func setupUI(title: String) {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textField)
+        stackView.addArrangedSubview(textView)
         
         titleLabel.text = title
-        textField.placeholder = title
-        textField.keyboardType = keyboardType
     
         layoutUI()
     }
@@ -79,9 +75,6 @@ extension LabelWithTextFieldView {
             stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            
-            textField.heightAnchor.constraint(equalToConstant: 50),
-            
         ])
         
     }
