@@ -46,6 +46,9 @@ extension AddBookViewController {
         title = "Add new book"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addNewBook))
         
+        navigationController?.navigationBar.barTintColor = .systemRed
+        navigationController?.navigationBar.isTranslucent = true
+        
     }
     
 
