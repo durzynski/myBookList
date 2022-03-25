@@ -8,10 +8,6 @@
 import UIKit
 
 class BookListViewController: UIViewController {
-    
-    ///IQKeyboardManager
-    ///readMe
-    ///icloud email
         
     private var bookListViewModel = BookListViewModel()
     
