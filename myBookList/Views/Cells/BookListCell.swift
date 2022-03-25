@@ -131,9 +131,10 @@ extension BookListCell {
         if viewModel.numberOfPages != 0 {
             progressBar.setProgress(viewModel.readingProgress, animated: false)
             progressLabel.text = viewModel.readingPercentString
+
         } else {
-            progressLabel.isHidden = true
-            progressBar.isHidden = true
+            progressLabel.text = ""
+            progressBar.setProgress(0, animated: false)
         }
     }
 }

@@ -33,7 +33,7 @@ class EmptyCellView: UIView {
     private let emptyCellLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 12, weight: .thin)
+        label.font = .systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .secondaryLabel

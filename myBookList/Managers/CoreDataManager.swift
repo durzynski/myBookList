@@ -35,6 +35,11 @@ class CoreDataManager {
         
         let request: NSFetchRequest<Book> = Book.fetchRequest()
         
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
+        let authorSort = NSSortDescriptor(key: "author", ascending: true)
+        
+        request.sortDescriptors = [titleSort, authorSort]
+        
         do {
             return try persistentContainer.viewContext.fetch(request)
         } catch {
