@@ -15,7 +15,7 @@ class ChevronImageView: UIImageView {
         
         translatesAutoresizingMaskIntoConstraints = false
         tintColor = .secondaryLabel
-        image = UIImage(systemName: "chevron.forward")
+        image = UIImage(systemName: K.chevronImageName)
         
     }
     

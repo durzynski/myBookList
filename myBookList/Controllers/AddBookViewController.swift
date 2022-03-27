@@ -43,7 +43,7 @@ class AddBookViewController: UIViewController {
 extension AddBookViewController {
 
     private func configureNavigation() {
-        title = "Add new book"
+        title = K.addBookListVcTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addNewBook))
         
         navigationController?.navigationBar.barTintColor = .systemRed

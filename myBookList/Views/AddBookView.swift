@@ -19,9 +19,9 @@ class AddBookView: UIView {
         return stackView
     }()
     
-    let titleView = AddBookTextField(title: "Book Title")
+    let titleView = AddBookTextField(title: K.AddNewBook.bookTitle)
    
-    let authorView = AddBookTextField(title: "Author")
+    let authorView = AddBookTextField(title: K.AddNewBook.author)
     
     private let pagesStackView: UIStackView = {
         let stackView = UIStackView()
@@ -32,11 +32,11 @@ class AddBookView: UIView {
         return stackView
     }()
     
-    let numberOfPagesReadView = AddBookTextField(title: "Read Pages", keyboardType: .numberPad)
+    let numberOfPagesReadView = AddBookTextField(title: K.AddNewBook.readPages, keyboardType: .numberPad)
     
-    let numberOfPagesView = AddBookTextField(title: "All Pages", keyboardType: .numberPad)
+    let numberOfPagesView = AddBookTextField(title: K.AddNewBook.allPages, keyboardType: .numberPad)
     
-    let notesView = AddBookTextView(title: "Notes")
+    let notesView = AddBookTextView(title: K.AddNewBook.notes)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

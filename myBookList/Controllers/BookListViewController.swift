@@ -64,7 +64,7 @@ extension BookListViewController {
     
     private func setupNavigation() {
         
-        title = "My Book List"
+        title = K.bookListVcTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddBookVC))
         

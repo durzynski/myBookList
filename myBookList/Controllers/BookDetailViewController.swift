@@ -63,7 +63,7 @@ class BookDetailViewController: UIViewController {
 extension BookDetailViewController {
 
     private func configureNavigation() {
-        title = "Book Details"
+        title = K.bookDetailVcTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editBook))
         
     }
