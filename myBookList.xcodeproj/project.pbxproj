@@ -111,20 +111,12 @@
 			children = (
 				2D29E9E727EA0BEF00EE4A1B /* Managers */,
 				2D4898C227E9E54000F08E86 /* Other */,
-				2D4898BF27E9E52D00F08E86 /* Models */,
 				2D4898C327E9E74700F08E86 /* ViewModels */,
 				2D4898C127E9E53C00F08E86 /* Views */,
 				2D4898C027E9E53200F08E86 /* Controllers */,
 				2D29E9EA27EA0CB100EE4A1B /* BookModel.xcdatamodeld */,
 			);
 			path = myBookList;
-			sourceTree = "<group>";
-		};
-		2D4898BF27E9E52D00F08E86 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		2D4898C027E9E53200F08E86 /* Controllers */ = {
@@ -186,7 +178,6 @@
 				FCFB8AC0B0CD368DA51DAB0D /* Pods-myBookList.debug.xcconfig */,
 				24C2F307F5379135E439A2A7 /* Pods-myBookList.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

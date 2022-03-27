@@ -21,7 +21,7 @@ struct K {
         static let author = "Author"
         static let readPages = "Read Pages"
         static let allPages = "All Pages"
-        static let notes  = "notes"
+        static let notes  = "Notes"
         
     }
     
